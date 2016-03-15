@@ -1,0 +1,15 @@
+{
+  "name": "SecretSet",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start"
+  },
+  "dependencies": {
+    "lodash": "^4.6.1",
+    "react-native": "^0.21.0",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1",
+    "redux-thunk": "^2.0.1"
+  }
+}
