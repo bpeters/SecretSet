@@ -2,6 +2,7 @@ import React from 'react-native';
 
 import {
   PRIMARY_COLOR_GRAY,
+  PRIMARY_COLOR_DARK,
 } from '../../theme';
 
 let {
@@ -15,7 +16,7 @@ let Styles = StyleSheet.create({
     paddingLeft: 10,
   },
   text: {
-    color: PRIMARY_COLOR_GRAY,
+    color: PRIMARY_COLOR_DARK,
     lineHeight: 16,
     marginTop: 3,
     fontSize: 16,

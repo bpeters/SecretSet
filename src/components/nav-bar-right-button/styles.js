@@ -2,6 +2,7 @@ import React from 'react-native';
 
 import {
   PRIMARY_COLOR_GRAY,
+  PRIMARY_COLOR_DARK,
 } from '../../theme';
 
 let {
@@ -22,6 +23,9 @@ let Styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 16,
   },
+  ready: {
+    color: PRIMARY_COLOR_DARK,
+  }
 });
 
 export default Styles;

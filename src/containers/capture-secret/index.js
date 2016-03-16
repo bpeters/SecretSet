@@ -2,7 +2,7 @@ import React from 'react-native';
 import { connect } from 'react-redux';
 
 import {
-  changePhone,
+  changeSecret,
 } from '../../actions/user';
 
 import styles from './styles.js';
@@ -14,7 +14,7 @@ let {
   TextInput,
 } = React;
 
-class CapturePhone extends React.Component{
+class CaptureSecret extends React.Component{
 
   constructor(props) {
     super(props);
@@ -27,16 +27,16 @@ class CapturePhone extends React.Component{
       <View style={styles.container}>
         <View style={styles.title}>
           <Text style={styles.titleText}>
-            Enter Mobile Number
+            Enter Secret Set Code
           </Text>
         </View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            keyboardType='phone-pad'
+            keyboardType='numeric'
             onChangeText={this._onChange.bind(this)}
-            value={this.props.user.phone}
-            placeholder='(***) *** - ***'
+            value={this.props.user.secret}
+            placeholder='******'
             autoFocus={true}
           />
         </View>
@@ -44,8 +44,8 @@ class CapturePhone extends React.Component{
     );
   }
 
-  _onChange(phone) {
-    this.props.dispatch(changePhone(phone));
+  _onChange(secret) {
+    this.props.dispatch(changeSecret(secret));
   }
 
 }
@@ -56,4 +56,4 @@ function select(state) {
   };
 }
 
-export default connect(select)(CapturePhone);
+export default connect(select)(CaptureSecret);
