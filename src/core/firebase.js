@@ -53,3 +53,10 @@ export function removeUser(user) {
 
   new Firebase(url).remove();
 }
+
+export function addMessage(message, user) {
+
+  let url = `${firebaseUrl}/${user.secret}/messages`;
+
+  new Firebase(url).push(message);
+}

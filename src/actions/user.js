@@ -276,3 +276,9 @@ export function leaveSet(user, navigator) {
 
   };
 }
+
+export function sendMessage(message, user) {
+  return dispatch => {
+    firebase.addMessage(message, user);
+  };
+}

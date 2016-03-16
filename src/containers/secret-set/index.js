@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import SideMenuContainer from '../../containers/side-menu';
+import ChatComponent from '../../components/chat';
 
 import {
   toggleSideMenu,
@@ -49,6 +50,9 @@ class SecretSet extends React.Component{
               {set.name}
             </Text>
           </View>
+          <ChatComponent
+            user={this.props.user}
+          />
         </View>
       </SideMenuContainer>
     );

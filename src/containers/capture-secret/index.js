@@ -33,6 +33,7 @@ class CaptureSecret extends React.Component{
         </View>
         <View style={styles.inputContainer}>
           <TextInput
+            ref={(c) => this._input = c}
             style={styles.input}
             keyboardType='numeric'
             onChangeText={this._onChange.bind(this)}
@@ -71,6 +72,8 @@ class CaptureSecret extends React.Component{
   }
 
   _onVerify() {
+    this._input.blur();
+
     this.props.dispatch(verifySecret(this.props.secret, this.props.navigator));
   }
 
