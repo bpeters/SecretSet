@@ -1,4 +1,5 @@
 import React from 'react-native';
+import { connect } from 'react-redux';
 
 import {
   LANDING,
@@ -51,4 +52,4 @@ class LeftButton extends React.Component{
   }
 }
 
-export default LeftButton;
+export default connect()(LeftButton);

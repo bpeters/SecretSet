@@ -13,8 +13,7 @@ import {
 } from '../../theme';
 
 let {
-  PropTypes,
-  Navigator,
+  StatusBarIOS,
 } = React;
 
 class SideMenu extends React.Component{
@@ -31,6 +30,7 @@ class SideMenu extends React.Component{
           <MenuComponent
             navigator={this.props.navigator}
             menuIsOpen={this.props.menuIsOpen}
+            set={this.props.set}
           />
         }
         isOpen={this.props.menuIsOpen}
@@ -38,6 +38,8 @@ class SideMenu extends React.Component{
         onChange={(isOpen) => {
           if (!isOpen && this.props.menuIsOpen) {
             this.props.dispatch(toggleSideMenu());
+
+            StatusBarIOS.setHidden(false);
           }
         }}
       >
@@ -50,6 +52,7 @@ class SideMenu extends React.Component{
 function select(state) {
   return {
     menuIsOpen: state.app.menuIsOpen,
+    set: state.user.set,
   };
 }
 

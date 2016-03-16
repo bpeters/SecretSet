@@ -77,6 +77,7 @@ class App extends React.Component {
     if (this.props.user.initialized) {
 
       let initialRoute;
+      let nav;
 
       if (this.props.user.isVerified) {
         initialRoute = {
@@ -90,14 +91,18 @@ class App extends React.Component {
         };
       }
 
+      if (this.props.app.showNav) {
+        nav = (
+          <Navigator.NavigationBar
+            routeMapper={NavigationBarRouteMapper()}
+            style={Theme.noNavBar}
+          />
+        );
+      }
+
       return (
         <Navigator
-          navigationBar={
-            <Navigator.NavigationBar
-              routeMapper={NavigationBarRouteMapper()}
-              style={Theme.noNavBar}
-            />
-          }
+          navigationBar={nav}
           configureScene={this._configureScene.bind(this)}
           renderScene={this._renderScene.bind(this)}
           initialRoute={initialRoute}
@@ -139,6 +144,7 @@ class App extends React.Component {
 function select(state) {
   return {
     user: state.user,
+    app: state.app,
   };
 }
 

@@ -25,7 +25,7 @@ export const BODY_TEXT_COLOR = '#5F5F5F';
 
 export const SCREEN_HEIGHT = Dimensions.get('window').height;
 export const SCREEN_WIDTH = Dimensions.get('window').width;
-export const SIDE_MENU_OFFSET = SCREEN_WIDTH - 44;
+export const SIDE_MENU_OFFSET = SCREEN_WIDTH - 60;
 
 export const BUTTON_WIDTH = 260;
 

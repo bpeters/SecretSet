@@ -137,6 +137,10 @@ export function setHandle(user, navigator) {
             type: types.USER_SET_HANDLE,
           });
 
+          dispatch({
+            type: types.APP_TOGGLE_NAV,
+          });
+
           navigator.resetTo({
             component: SecretSetContainer,
             type: SECRET_SET,

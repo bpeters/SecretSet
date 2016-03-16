@@ -3,6 +3,7 @@ import React from 'react-native';
 import {
   PRIMARY_COLOR_GRAY,
   PRIMARY_COLOR_DARK,
+  PRIMARY_COLOR_LIGHT,
 } from '../../theme';
 
 let {
@@ -20,6 +21,9 @@ let Styles = StyleSheet.create({
     lineHeight: 18,
     marginTop: 3,
     fontSize: 18,
+  },
+  icon: {
+    color: PRIMARY_COLOR_LIGHT,
   },
 });
 
