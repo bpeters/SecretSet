@@ -37,7 +37,7 @@ class Success extends React.Component{
           Success!
         </Text>
         <Text style={styles.small}>
-          Mobile Phone Verified
+          You have been verified
         </Text>
       </View>
     );

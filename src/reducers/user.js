@@ -1,6 +1,7 @@
 import * as types from '../constants/action-types';
 import React from 'react-native';
 import _ from 'lodash';
+import * as firebase from '../core/firebase';
 
 let {
   AsyncStorage,
@@ -13,12 +14,20 @@ const initialState = {
   sentCode: false,
   isVerified: false,
   secret: null,
+  set: null,
+  loading: false,
+  initialized: false,
 };
 
 export default function app(state = initialState, action) {
   let user = _.cloneDeep(state);
 
   switch (action.type) {
+
+    case types.USER_INITIALIZE:
+      return Object.assign({}, state, action.user, {
+        initialized: true
+      });
 
     case types.USER_CHANGE_PHONE:
       return Object.assign({}, state, {
@@ -38,6 +47,17 @@ export default function app(state = initialState, action) {
     case types.USER_CHANGE_SECRET:
       return Object.assign({}, state, {
         secret: action.secret,
+      });
+
+    case types.USER_FOUND_SET:
+      return Object.assign({}, state, {
+        set: action.set,
+        loading: false,
+      });
+
+    case types.USER_LOADING:
+      return Object.assign({}, state, {
+        loading: true,
       });
 
     case types.USER_SET_PHONE:
@@ -60,14 +80,6 @@ export default function app(state = initialState, action) {
     case types.USER_SET_HANDLE:
 
       user.handle = action.handle;
-
-      AsyncStorage.setItem('SECRET_SET_USER', JSON.stringify(user));
-
-      return Object.assign({}, state, user);
-
-    case types.USER_SET_SECRET:
-
-      user.secret = action.secret;
 
       AsyncStorage.setItem('SECRET_SET_USER', JSON.stringify(user));
 

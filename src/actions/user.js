@@ -9,6 +9,7 @@ import SuccessContainer from '../containers/success';
 import FailureContainer from '../containers/failure';
 import CaptureHandleContainer from '../containers/capture-handle';
 import CaptureSecretContainer from '../containers/capture-secret';
+import SetPreviewContainer from '../containers/set-preview';
 
 import {
   VERIFY_PHONE,
@@ -16,34 +17,60 @@ import {
   FAILURE,
   CAPTURE_HANDLE,
   CAPTURE_SECRET,
+  SET_PREVIEW,
 } from '../constants/routes';
 
 let {
   AsyncStorage,
 } = React;
 
+export function initalize(user) {
+  return async dispatch => {
+
+    try {
+      let user = await AsyncStorage.getItem('SECRET_SET_USER');
+
+      dispatch({
+        type: types.USER_INITIALIZE,
+        user: JSON.parse(user),
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
 export function setPhone(phone, navigator) {
   return async dispatch => {
 
     try {
 
-      //let code = Math.floor(Math.random()*90000) + 10000;
+      if (phone.length === 10) {
+        //let code = Math.floor(Math.random()*90000) + 10000;
 
-      let code = 123456; //fake it
+        let code = 123456; //fake it
 
-      await AsyncStorage.setItem('SECRET_SET_VERFICATION_CODE', code.toString());
+        await AsyncStorage.setItem('SECRET_SET_VERFICATION_CODE', code.toString());
 
-      //await twilio.sendVerificationCode(phone, code);
+        //await twilio.sendVerificationCode(phone, code);
 
-      dispatch({
-        type: types.USER_SET_PHONE,
-        phone: phone,
-      });
+        dispatch({
+          type: types.USER_SET_PHONE,
+          phone: phone,
+        });
 
-      navigator.push({
-        component: VerifyPhoneContainer,
-        type: VERIFY_PHONE,
-      });
+        navigator.push({
+          component: VerifyPhoneContainer,
+          type: VERIFY_PHONE,
+        });
+      } else {
+        navigator.push({
+          component: FailureContainer,
+          type: FAILURE,
+          error: "Phone needs to include area code",
+        });
+      }
 
     } catch (err) {
       console.log(err);
@@ -69,9 +96,10 @@ export function verifyCode(code, navigator) {
           type: SUCCESS,
         });
       } else {
-        dispatch({
-          type: types.APP_ERROR,
-          error: 'Verification code incorrect'
+        navigator.push({
+          component: FailureContainer,
+          type: FAILURE,
+          error: "Verification code is incorrect",
         });
       }
 
@@ -95,9 +123,10 @@ export function setHandle(handle, navigator) {
         });
 
       } else {
-        dispatch({
-          type: types.APP_ERROR,
-          error: 'Handle needs to be less than 16 characters and contain no spaces or special characters'
+        navigator.push({
+          component: FailureContainer,
+          type: FAILURE,
+          error: "Handle must contain no spaces or special characters",
         });
       }
 
@@ -113,12 +142,20 @@ export function verifySecret(secret, navigator) {
 
     try {
 
-      let set = await firebase.getSet(secret);
+      dispatch({
+        type: types.USER_LOADING,
+      });
 
-      console.log(set);
+      let set = await firebase.getSet(secret);
 
       if (set) {
 
+        firebase.updateSet(secret, dispatch);
+
+        navigator.resetTo({
+          component: SetPreviewContainer,
+          type: SET_PREVIEW,
+        });
       } else {
         navigator.push({
           component: FailureContainer,

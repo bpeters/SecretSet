@@ -28,7 +28,7 @@ class CaptureSecret extends React.Component{
       <View style={styles.container}>
         <View style={styles.title}>
           <Text style={styles.titleText}>
-            Enter Secret Set Code
+            Enter your secret set code
           </Text>
         </View>
         <View style={styles.inputContainer}>
@@ -43,6 +43,7 @@ class CaptureSecret extends React.Component{
           />
         </View>
         {length === 6 ? this._renderButton() : null}
+        {this.props.loading ? this._renderLoading() : null}
       </View>
     );
   }
@@ -61,6 +62,10 @@ class CaptureSecret extends React.Component{
     );
   }
 
+  _renderLoading() {
+    return null;
+  }
+
   _onChange(secret) {
     this.props.dispatch(changeSecret(secret));
   }
@@ -74,6 +79,7 @@ class CaptureSecret extends React.Component{
 function select(state) {
   return {
     secret: state.user.secret,
+    loading: state.user.loading,
   };
 }
 

@@ -31,7 +31,7 @@ class Failure extends React.Component{
     return (
       <View style={styles.container}>
         <Text style={styles.big}>
-          No, no, no...
+          Oops!
         </Text>
         <Text style={styles.small}>
           {this.props.route.error}

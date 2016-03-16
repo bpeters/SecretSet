@@ -2,6 +2,7 @@ import React from 'react-native';
 import { connect } from 'react-redux';
 
 import LandingContainer from './containers/landing';
+import CaptureSecretContainer from './containers/capture-secret';
 import TitleComponent from './components/nav-bar-title';
 import RightButtonComponent from './components/nav-bar-right-button';
 import LeftButtonComponent from './components/nav-bar-left-button';
@@ -14,6 +15,10 @@ import {
   CAPTURE_SECRET,
   FAILURE,
 } from './constants/routes';
+
+import {
+  initalize,
+} from './actions/user';
 
 import Theme from './theme';
 
@@ -61,23 +66,43 @@ class App extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.dispatch(initalize());
+  }
+
   render() {
-    return (
-      <Navigator
-        navigationBar={
-          <Navigator.NavigationBar
-            routeMapper={NavigationBarRouteMapper()}
-            style={Theme.noNavBar}
-          />
-        }
-        configureScene={this._configureScene.bind(this)}
-        renderScene={this._renderScene.bind(this)}
-        initialRoute={{
+    if (this.props.user.initialized) {
+
+      let initialRoute;
+
+      if (this.props.user.isVerified) {
+        initialRoute = {
+          component: CaptureSecretContainer,
+          type: CAPTURE_SECRET,
+        };
+      } else {
+        initialRoute = {
           component: LandingContainer,
           type: LANDING,
-        }}
-      />
-    );
+        };
+      }
+
+      return (
+        <Navigator
+          navigationBar={
+            <Navigator.NavigationBar
+              routeMapper={NavigationBarRouteMapper()}
+              style={Theme.noNavBar}
+            />
+          }
+          configureScene={this._configureScene.bind(this)}
+          renderScene={this._renderScene.bind(this)}
+          initialRoute={initialRoute}
+        />
+      );
+    } else {
+      return null;
+    }
   }
 
   _renderScene(route, navigator) {
@@ -104,4 +129,10 @@ class App extends React.Component {
 
 }
 
-export default App;
+function select(state) {
+  return {
+    user: state.user,
+  };
+}
+
+export default connect(select)(App);

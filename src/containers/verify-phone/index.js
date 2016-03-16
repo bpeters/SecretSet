@@ -27,7 +27,7 @@ class VerifyPhone extends React.Component{
       <View style={styles.container}>
         <View style={styles.title}>
           <Text style={styles.titleText}>
-            Enter Verification Code
+            Enter you verification code
           </Text>
         </View>
         <View style={styles.inputContainer}>

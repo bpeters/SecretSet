@@ -11,15 +11,15 @@ let {
 
 let Styles = StyleSheet.create({
   button: {
-    marginTop: 3,
-    padding: 8,
-    paddingLeft: 10,
+    marginTop: 8,
+    padding: 10,
+    paddingLeft: 18,
   },
   text: {
     color: PRIMARY_COLOR_DARK,
-    lineHeight: 16,
+    lineHeight: 18,
     marginTop: 3,
-    fontSize: 16,
+    fontSize: 18,
   },
 });
 

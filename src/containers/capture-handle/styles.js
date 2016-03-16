@@ -22,26 +22,29 @@ let Styles = StyleSheet.create({
     width: SCREEN_WIDTH,
   },
   title: {
-    marginTop: NAV_BAR_HEIGHT,
+    marginTop: NAV_BAR_HEIGHT + 20,
     width: SCREEN_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 20,
   },
   titleText: {
-
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   inputContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     width: SCREEN_WIDTH,
-    height: NAV_BAR_HEIGHT,
+    height: NAV_BAR_HEIGHT + 20,
     backgroundColor: PRIMARY_COLOR_LIGHT,
   },
   input: {
     textAlign: 'center',
     color: PRIMARY_COLOR_DARK,
-    height: NAV_BAR_HEIGHT,
+    height: NAV_BAR_HEIGHT + 20,
+    fontSize: 28,
+    fontWeight: 'bold',
   }
 });
 

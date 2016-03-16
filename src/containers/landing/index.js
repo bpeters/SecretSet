@@ -24,8 +24,6 @@ class Landing extends React.Component{
     this.state = {};
   }
 
-  componentDidMount() {}
-
   render() {
     return (
       <View style={styles.container}>
@@ -40,7 +38,7 @@ class Landing extends React.Component{
           <TouchableOpacity onPress={this._onSignup.bind(this)}>
             <View style={styles.button}>
               <Text style={styles.buttonText}>
-                Start
+                Join a Set
               </Text>
             </View>
           </TouchableOpacity>

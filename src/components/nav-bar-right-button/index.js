@@ -31,7 +31,7 @@ class RightButton extends React.Component{
   render() {
     switch (this.props.type) {
       case CAPTURE_PHONE:
-        return this._renderText('Send', this._toVerify.bind(this), this.props.user.phone);
+        return this._renderText('Next', this._toVerify.bind(this), this.props.user.phone);
       case VERIFY_PHONE:
         return this._renderText('Verify', this._toSuccess.bind(this), this.props.user.code);
       default:

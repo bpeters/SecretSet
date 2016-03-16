@@ -22,34 +22,20 @@ let Styles = StyleSheet.create({
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH,
   },
-  branding: {
+  info: {
     width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT / 1.8,
-    marginBottom: 80,
+    height: SCREEN_HEIGHT / 3,
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  logo: {
-    width: SCREEN_WIDTH / 1.8,
+  setName: {
+    color: PRIMARY_COLOR_LIGHT,
   },
-  buttonContainer: {
-    width: SCREEN_WIDTH,
-    alignItems: 'center',
-    justifyContent: 'center',
+  createdBy: {
+    color: PRIMARY_COLOR_LIGHT,
   },
-  button: {
-    backgroundColor: PRIMARY_COLOR_LIGHT,
-    padding: 18,
-    width: SCREEN_WIDTH / 1.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 4,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: PURPLE,
-    fontSize: 20,
-    fontWeight: 'bold',
+  setDescription: {
+    color: PRIMARY_COLOR_LIGHT,
   },
 });
 

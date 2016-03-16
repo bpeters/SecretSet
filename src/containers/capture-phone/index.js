@@ -27,7 +27,7 @@ class CapturePhone extends React.Component{
       <View style={styles.container}>
         <View style={styles.title}>
           <Text style={styles.titleText}>
-            Enter Mobile Number
+            Enter your mobile number
           </Text>
         </View>
         <View style={styles.inputContainer}>
