@@ -2,6 +2,7 @@ import React from 'react-native';
 import { connect } from 'react-redux';
 
 import LandingContainer from './containers/landing';
+import TitleComponent from './components/nav-bar-title';
 import RightButtonComponent from './components/nav-bar-right-button';
 import LeftButtonComponent from './components/nav-bar-left-button';
 
@@ -41,7 +42,11 @@ function NavigationBarRouteMapper() {
     },
 
     Title: function (route, navigator, index, navState) {
-      return null;
+      return (
+        <TitleComponent
+          type={route.type}
+        />
+      );
     },
 
   });

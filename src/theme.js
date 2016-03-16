@@ -12,7 +12,7 @@ export const PRIMARY_COLOR_DARK = '#2E2E2E';
 export const PRIMARY_COLOR_GRAY = '#616161';
 export const PRIMARY_COLOR_LIGHT = '#FFFFFF';
 
-export const RED = '#ED3D96';
+export const RED = '#D033E3';
 export const BLUE = '#03A9F4';
 export const YELLOW = '#F9CA6B';
 export const GREEN = '#02D04E';
@@ -42,13 +42,6 @@ let Styles = StyleSheet.create({
     height: NAV_BAR_HEIGHT,
     borderBottomColor: BORDER_COLOR,
     borderBottomWidth: 1,
-  },
-  title: {
-    fontSize: Platform.OS == 'ios' ? 20 : 18,
-    color: PRIMARY_COLOR_DARK,
-    paddingTop: 8,
-    paddingBottom: 5,
-    marginTop: Platform.OS == 'ios' ? 0 : 18,
   },
 });
 

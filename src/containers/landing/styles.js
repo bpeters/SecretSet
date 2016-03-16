@@ -24,6 +24,8 @@ let Styles = StyleSheet.create({
   branding: {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT / 2,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   buttons: {
     flex: 1,

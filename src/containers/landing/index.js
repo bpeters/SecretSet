@@ -13,6 +13,7 @@ let {
   View,
   Text,
   TouchableOpacity,
+  Image,
 } = React;
 
 class Landing extends React.Component{
@@ -29,20 +30,16 @@ class Landing extends React.Component{
     return (
       <View style={styles.container}>
         <View style={styles.branding}>
-
+          <Image
+            style={styles.logo}
+            source={require('../../assets/logo.png')}
+          />
         </View>
         <View style={styles.buttons}>
           <TouchableOpacity onPress={this._onSignup.bind(this)}>
             <View style={styles.signup}>
               <Text style={styles.signupText}>
-                Sign Up
-              </Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this._onLogin.bind(this)}>
-            <View style={styles.login}>
-              <Text style={styles.loginText}>
-                Log In
+                Start
               </Text>
             </View>
           </TouchableOpacity>
@@ -56,13 +53,6 @@ class Landing extends React.Component{
       component: CapturePhoneContainer,
       type: CAPTURE_PHONE,
       isNew: true,
-    });
-  }
-
-  _onLogin() {
-    this.props.navigator.push({
-      component: CapturePhoneContainer,
-      type: CAPTURE_PHONE,
     });
   }
 
