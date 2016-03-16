@@ -31,10 +31,21 @@ class Chat extends React.Component{
   render() {
     let maxHeight = SCREEN_HEIGHT - STATUS_BAR_HEIGHT - 200;
 
+    let people = _.map(this.props.user.set.online);
+
     let messages = _.map(this.props.user.set.messages, (message) => {
-      message.image = {
-        uri: 'http://ahcoloring.net/images/hnBcI3uRl.jpg'
-      };
+
+      let person = _.find(people, (person) => {
+        return person.handle === message.handle;
+      });
+
+      if (person && person.mood === 'happy') {
+        message.image = require('../../assets/faces-happy.png');
+      } else if (person && person.mood == 'unhappy') {
+        message.image = require('../../assets/faces-unhappy.png');
+      } else {
+        message.image = require('../../assets/faces-soso.png');
+      }
 
       message.position = 'left';
       message.userId = message.handle;

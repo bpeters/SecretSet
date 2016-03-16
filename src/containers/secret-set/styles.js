@@ -34,6 +34,27 @@ let Styles = StyleSheet.create({
     flexDirection: 'row',
     height: 264,
   },
+  emotions: {
+    position: 'absolute',
+    top: STATUS_BAR_HEIGHT + 160,
+    width: SCREEN_WIDTH,
+    left: 0,
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  face: {
+    backgroundColor: 'rgba(255,255,255,.8)',
+    height: 24,
+    width: 24,
+    marginLeft: 12,
+    marginRight: 12,
+    borderRadius: 12,
+  },
+  mood: {
+    backgroundColor: PURPLE,
+  },
   menu: {
     height: 28,
     width: 28,

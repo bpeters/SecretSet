@@ -282,3 +282,9 @@ export function sendMessage(message, user) {
     firebase.addMessage(message, user);
   };
 }
+
+export function addMood(mood, user) {
+  return dispatch => {
+    firebase.addUser(user, mood);
+  };
+}

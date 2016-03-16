@@ -12,6 +12,10 @@ import {
   toggleSideMenu,
 } from '../../actions/app';
 
+import {
+  addMood,
+} from '../../actions/user';
+
 import styles from './styles.js';
 
 let {
@@ -34,12 +38,25 @@ class SecretSet extends React.Component{
       video: videos[0],
       videoIndex: 0,
       skipped: 0,
+      mood: null,
     };
   }
 
   render() {
     let set = this.props.user.set;
     let videos = _.map(this.props.user.set.videos);
+
+    let people = _.map(this.props.user.set.online);
+
+    let unhappy = _.filter(people, (person) => {
+      return person.mood === 'unhappy';
+    });
+    let happy = _.filter(people, (person) => {
+      return person.mood === 'happy';
+    });
+    let soso = _.filter(people, (person) => {
+      return person.mood === 'soso';
+    });
 
     return (
       <SideMenuContainer
@@ -114,6 +131,35 @@ class SecretSet extends React.Component{
               {set.name}
             </Text>
           </View>
+          <View style={styles.emotions}>
+            <TouchableOpacity
+              onPress={this._onHappy.bind(this)}
+            >
+              <Image
+                resizeMode='contain'
+                style={[styles.face, {top: -1 * happy.length}, (this.state.mood === 'happy' ? styles.mood : null)]}
+                source={require('../../assets/faces-happy.png')}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={this._onSoSo.bind(this)}
+            >
+              <Image
+                resizeMode='contain'
+                style={[styles.face, {top: -1 * soso.length}, (this.state.mood === 'soso' ? styles.mood : null)]}
+                source={require('../../assets/faces-soso.png')}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={this._onUnhappy.bind(this)}
+            >
+              <Image
+                resizeMode='contain'
+                style={[styles.face, {top: -1 * unhappy.length}, (this.state.mood === 'unhappy' ? styles.mood : null)]}
+                source={require('../../assets/faces-unhappy.png')}
+              />
+            </TouchableOpacity>
+          </View>
           <ChatComponent
             user={this.props.user}
           />
@@ -124,6 +170,27 @@ class SecretSet extends React.Component{
 
   _toggleMenu() {
     this.props.dispatch(toggleSideMenu());
+  }
+
+  _onHappy() {
+    this.props.dispatch(addMood('happy', this.props.user));
+    this.setState({
+      mood:'happy',
+    });
+  }
+
+  _onSoSo() {
+    this.props.dispatch(addMood('soso', this.props.user));
+    this.setState({
+      mood:'soso',
+    });
+  }
+
+  _onUnhappy() {
+    this.props.dispatch(addMood('unhappy', this.props.user));
+    this.setState({
+      mood:'unhappy',
+    });
   }
 
 }

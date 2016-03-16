@@ -32,7 +32,7 @@ class SetPreview extends React.Component{
     let actionText = 'Join Set';
 
     if (spots === 0 && set.price) {
-      action = this._onPay.bind(this);
+      //action = this._onPay.bind(this);
       actionText = `$${set.price} to Join Set`;
     }
 
