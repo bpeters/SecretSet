@@ -12,10 +12,10 @@ export const PRIMARY_COLOR_DARK = '#2E2E2E';
 export const PRIMARY_COLOR_GRAY = '#616161';
 export const PRIMARY_COLOR_LIGHT = '#FFFFFF';
 
-export const RED = '#ED3D96';
-export const BLUE = '#03A9F4';
-export const YELLOW = '#F9CA6B';
-export const GREEN = '#02D04E';
+export const PURPLE = '#D033E3';
+export const DARK_PURPLE = '#8902B3';
+export const GREEN = '#2AF09C';
+export const RED = '#F0AF2A';
 
 export const BORDER_COLOR = '#D1CCC7';
 export const BORDER_COLOR_LIGHT = '#E9E7E9';
@@ -25,7 +25,9 @@ export const BODY_TEXT_COLOR = '#5F5F5F';
 
 export const SCREEN_HEIGHT = Dimensions.get('window').height;
 export const SCREEN_WIDTH = Dimensions.get('window').width;
-export const SIDE_MENU_OFFSET = SCREEN_WIDTH - 44;
+export const SIDE_MENU_OFFSET = SCREEN_WIDTH - 60;
+
+export const BUTTON_WIDTH = 260;
 
 export const STATUS_BAR_HEIGHT = 20;
 export const NAV_BAR_HEIGHT = 64;
@@ -42,13 +44,6 @@ let Styles = StyleSheet.create({
     height: NAV_BAR_HEIGHT,
     borderBottomColor: BORDER_COLOR,
     borderBottomWidth: 1,
-  },
-  title: {
-    fontSize: Platform.OS == 'ios' ? 20 : 18,
-    color: PRIMARY_COLOR_DARK,
-    paddingTop: 8,
-    paddingBottom: 5,
-    marginTop: Platform.OS == 'ios' ? 0 : 18,
   },
 });
 

@@ -13,6 +13,7 @@ let {
   View,
   Text,
   TouchableOpacity,
+  Image,
 } = React;
 
 class Landing extends React.Component{
@@ -23,43 +24,30 @@ class Landing extends React.Component{
     this.state = {};
   }
 
-  componentDidMount() {}
-
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.branding}>
-
+          <Image
+            resizeMode='contain'
+            style={styles.logo}
+            source={require('../../assets/logo.png')}
+          />
         </View>
-        <View style={styles.buttons}>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={this._onSignup.bind(this)}>
-            <View style={styles.signup}>
-              <Text style={styles.signupText}>
-                Sign Up
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>
+                Join a Set
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this._onLogin.bind(this)}>
-            <View style={styles.login}>
-              <Text style={styles.loginText}>
-                Log In
-              </Text>
-            </View>
-          </TouchableOpacity>
-          </View>
+        </View>
       </View>
     );
   }
 
   _onSignup() {
-    this.props.navigator.push({
-      component: CapturePhoneContainer,
-      type: CAPTURE_PHONE,
-      isNew: true,
-    });
-  }
-
-  _onLogin() {
     this.props.navigator.push({
       component: CapturePhoneContainer,
       type: CAPTURE_PHONE,

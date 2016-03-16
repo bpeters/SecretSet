@@ -2,6 +2,8 @@ import React from 'react-native';
 import { connect } from 'react-redux';
 
 import LandingContainer from './containers/landing';
+import CaptureSecretContainer from './containers/capture-secret';
+import TitleComponent from './components/nav-bar-title';
 import RightButtonComponent from './components/nav-bar-right-button';
 import LeftButtonComponent from './components/nav-bar-left-button';
 
@@ -9,7 +11,17 @@ import {
   LANDING,
   CAPTURE_PHONE,
   VERIFY_PHONE,
+  SUCCESS,
+  CAPTURE_SECRET,
+  FAILURE,
+  SECRET_SET,
+  SET_PREVIEW,
+  CAPTURE_HANDLE,
 } from './constants/routes';
+
+import {
+  initalize,
+} from './actions/user';
 
 import Theme from './theme';
 
@@ -41,7 +53,11 @@ function NavigationBarRouteMapper() {
     },
 
     Title: function (route, navigator, index, navState) {
-      return null;
+      return (
+        <TitleComponent
+          type={route.type}
+        />
+      );
     },
 
   });
@@ -53,23 +69,48 @@ class App extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.dispatch(initalize());
+  }
+
   render() {
-    return (
-      <Navigator
-        navigationBar={
+    if (this.props.user.initialized) {
+
+      let initialRoute;
+      let nav;
+
+      if (this.props.user.isVerified) {
+        initialRoute = {
+          component: CaptureSecretContainer,
+          type: CAPTURE_SECRET,
+        };
+      } else {
+        initialRoute = {
+          component: LandingContainer,
+          type: LANDING,
+        };
+      }
+
+      if (this.props.app.showNav) {
+        nav = (
           <Navigator.NavigationBar
             routeMapper={NavigationBarRouteMapper()}
             style={Theme.noNavBar}
           />
-        }
-        configureScene={this._configureScene.bind(this)}
-        renderScene={this._renderScene.bind(this)}
-        initialRoute={{
-          component: LandingContainer,
-          type: LANDING,
-        }}
-      />
-    );
+        );
+      }
+
+      return (
+        <Navigator
+          navigationBar={nav}
+          configureScene={this._configureScene.bind(this)}
+          renderScene={this._renderScene.bind(this)}
+          initialRoute={initialRoute}
+        />
+      );
+    } else {
+      return null;
+    }
   }
 
   _renderScene(route, navigator) {
@@ -85,11 +126,26 @@ class App extends React.Component {
 
   _configureScene(route) {
     switch (route.type) {
-      default:
+      case FAILURE:
+        return Navigator.SceneConfigs.VerticalUpSwipeJump;
+      case SUCCESS:
+        return Navigator.SceneConfigs.VerticalDownSwipeJump;
+      case SECRET_SET:
+      case SET_PREVIEW:
+      case CAPTURE_HANDLE:
         return Navigator.SceneConfigs.FloatFromRight;
+      default:
+        return Navigator.SceneConfigs.HorizontalSwipeJump;
     }
   }
 
 }
 
-export default App;
+function select(state) {
+  return {
+    user: state.user,
+    app: state.app,
+  };
+}
+
+export default connect(select)(App);

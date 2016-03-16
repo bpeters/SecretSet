@@ -6,7 +6,9 @@ import {
   SCREEN_WIDTH,
   NAV_BAR_HEIGHT,
   PRIMARY_COLOR_LIGHT,
-  RED,
+  PURPLE,
+  DARK_PURPLE,
+  BUTTON_WIDTH,
 } from '../../theme';
 
 let {
@@ -17,42 +19,38 @@ let Styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: RED,
+    backgroundColor: PURPLE,
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH,
   },
   branding: {
     width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT / 2,
+    height: SCREEN_HEIGHT / 1.8,
+    marginBottom: 80,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
-  buttons: {
-    flex: 1,
+  logo: {
+    width: SCREEN_WIDTH / 1.8,
+  },
+  buttonContainer: {
     width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT / 2,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  signup: {
+  button: {
     backgroundColor: PRIMARY_COLOR_LIGHT,
-    padding: 10,
-    width: SCREEN_WIDTH / 2,
+    padding: 18,
+    width: BUTTON_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 4,
     marginBottom: 10,
   },
-  signupText: {
-    color: RED,
-  },
-  login: {
-    backgroundColor: 'transparent',
-    padding: 10,
-    width: SCREEN_WIDTH / 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  loginText: {
-    color: PRIMARY_COLOR_LIGHT,
+  buttonText: {
+    color: PURPLE,
+    fontSize: 20,
+    fontFamily: 'AvenirNext-Bold',
   },
 });
 

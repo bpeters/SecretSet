@@ -1,9 +1,14 @@
 import React from 'react-native';
+import { connect } from 'react-redux';
 
 import {
   LANDING,
   CAPTURE_PHONE,
   VERIFY_PHONE,
+  SUCCESS,
+  CAPTURE_SECRET,
+  SECRET_SET,
+  SET_PREVIEW,
 } from '../../constants/routes';
 
 import styles from './styles.js';
@@ -25,18 +30,20 @@ class LeftButton extends React.Component{
         return this._renderText('Back', this._back.bind(this));
       case VERIFY_PHONE:
         return this._renderText('Back', this._back.bind(this));
+      case SET_PREVIEW:
+        return this._renderText('Back', this._back.bind(this), true);
       default:
         return null;
     }
   }
 
-   _renderText(text, action) {
+   _renderText(text, action, isWhite) {
     return (
       <TouchableOpacity
         onPress={() => action()}
         style={styles.button}
       >
-        <Text style={styles.text}>
+        <Text style={[styles.text, (isWhite ? styles.white : null)]}>
           {text}
         </Text>
       </TouchableOpacity>
@@ -48,4 +55,4 @@ class LeftButton extends React.Component{
   }
 }
 
-export default LeftButton;
+export default connect()(LeftButton);
