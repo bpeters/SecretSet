@@ -36,3 +36,13 @@ export async function updateSet(secret, dispatch) {
       });
     });
 }
+
+export function addUser(user) {
+
+  let url = `${firebaseUrl}/${user.secret}/online/${user.phone}`;
+
+  new Firebase(url).set({
+    phone: user.phone,
+    handle: user.handle,
+  });
+}

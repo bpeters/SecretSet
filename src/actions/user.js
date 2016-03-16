@@ -1,4 +1,5 @@
 import React from 'react-native';
+import _ from 'lodash';
 
 import * as types from '../constants/action-types';
 import * as twilio from '../core/twilio';
@@ -10,6 +11,7 @@ import FailureContainer from '../containers/failure';
 import CaptureHandleContainer from '../containers/capture-handle';
 import CaptureSecretContainer from '../containers/capture-secret';
 import SetPreviewContainer from '../containers/set-preview';
+import SecretSetContainer from '../containers/secret-set';
 
 import {
   VERIFY_PHONE,
@@ -18,6 +20,7 @@ import {
   CAPTURE_HANDLE,
   CAPTURE_SECRET,
   SET_PREVIEW,
+  SECRET_SET,
 } from '../constants/routes';
 
 let {
@@ -110,18 +113,41 @@ export function verifyCode(code, navigator) {
   };
 }
 
-export function setHandle(handle, navigator) {
+export function setHandle(user, navigator) {
   return async dispatch => {
 
     try {
 
+      let handle = user.handle.toLowerCase();
+      let online = _.map(user.set.online);
+
+      let handleUsedAlready = _.find(online, (other) => {
+        return other.handle === handle;
+      });
+
       let handleCheck = new RegExp("^[A-Za-z0-9]{1,15}$");
 
       if (handleCheck.test(handle)) {
-        dispatch({
-          type: types.USER_SET_HANDLE,
-        });
 
+        if (!handleUsedAlready) {
+
+          firebase.addUser(user);
+
+          dispatch({
+            type: types.USER_SET_HANDLE,
+          });
+
+          navigator.resetTo({
+            component: SecretSetContainer,
+            type: SECRET_SET,
+          });
+        } else {
+          navigator.push({
+            component: FailureContainer,
+            type: FAILURE,
+            error: "Handle already in use",
+          });
+        }
       } else {
         navigator.push({
           component: FailureContainer,
@@ -157,7 +183,7 @@ export function verifySecret(secret, navigator) {
 
         firebase.updateSet(secret, dispatch);
 
-        navigator.resetTo({
+        navigator.push({
           component: SetPreviewContainer,
           type: SET_PREVIEW,
         });
@@ -173,6 +199,24 @@ export function verifySecret(secret, navigator) {
       console.log(err);
     }
 
+  };
+}
+
+export function joinSet(user, navigator) {
+  return async dispatch => {
+
+    try {
+
+      firebase.addUser(user);
+
+      navigator.push({
+        component: CaptureHandleContainer,
+        type: CAPTURE_HANDLE,
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
   };
 }
 

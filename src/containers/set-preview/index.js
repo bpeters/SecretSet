@@ -1,5 +1,10 @@
 import React from 'react-native';
 import { connect } from 'react-redux';
+import _ from 'lodash';
+
+import {
+  joinSet,
+} from '../../actions/user';
 
 import styles from './styles.js';
 
@@ -19,14 +24,12 @@ class SetPreview extends React.Component{
   }
 
   render() {
-    let set = this.props.set;
-    let online = set.online ? set.online.length : 0;
-    let spots = (set.limit - online <= 0) ? 0 : (set.limit - online);
+    let set = this.props.user.set;
+    let online = set.online ? _.map(set.online) : [];
+    let spots = (set.limit - online.length <= 0) ? 0 : (set.limit - online.length);
 
     let action = this._onEnter.bind(this);
     let actionText = 'Join Set';
-
-    console.log(set);
 
     return (
       <View style={styles.container}>
@@ -45,7 +48,7 @@ class SetPreview extends React.Component{
               {`${spots} free spots`}
             </Text>
             <Text style={styles.online}>
-              {`${online} online`}
+              {`${online.length} online`}
             </Text>
           </View>
         </View>
@@ -63,7 +66,7 @@ class SetPreview extends React.Component{
   }
 
   _onEnter() {
-    
+    this.props.dispatch(joinSet(this.props.user, this.props.navigator));
   }
 
   _onPay() {
@@ -74,7 +77,7 @@ class SetPreview extends React.Component{
 
 function select(state) {
   return {
-    set: state.user.set,
+    user: state.user,
   };
 }
 

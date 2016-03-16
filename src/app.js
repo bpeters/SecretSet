@@ -14,6 +14,9 @@ import {
   SUCCESS,
   CAPTURE_SECRET,
   FAILURE,
+  SECRET_SET,
+  SET_PREVIEW,
+  CAPTURE_HANDLE,
 } from './constants/routes';
 
 import {
@@ -122,6 +125,10 @@ class App extends React.Component {
         return Navigator.SceneConfigs.VerticalUpSwipeJump;
       case SUCCESS:
         return Navigator.SceneConfigs.VerticalDownSwipeJump;
+      case SECRET_SET:
+      case SET_PREVIEW:
+      case CAPTURE_HANDLE:
+        return Navigator.SceneConfigs.FloatFromRight;
       default:
         return Navigator.SceneConfigs.HorizontalSwipeJump;
     }

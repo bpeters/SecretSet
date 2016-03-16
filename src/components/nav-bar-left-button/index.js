@@ -6,6 +6,7 @@ import {
   VERIFY_PHONE,
   SUCCESS,
   CAPTURE_SECRET,
+  SECRET_SET,
 } from '../../constants/routes';
 
 import styles from './styles.js';

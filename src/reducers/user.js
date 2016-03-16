@@ -19,7 +19,7 @@ const initialState = {
     description: null,
     createdBy: null,
     limit: null,
-    online: [],
+    online: null,
     price: null,
   },
   loading: false,
@@ -57,7 +57,6 @@ export default function app(state = initialState, action) {
       });
 
     case types.USER_FOUND_SET:
-      console.log(action.set);
       return Object.assign({}, state, {
         set: action.set,
         loading: false,

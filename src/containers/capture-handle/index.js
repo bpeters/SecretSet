@@ -14,20 +14,18 @@ let {
   TextInput,
 } = React;
 
-class CapturePhone extends React.Component{
+class CaptureHandle extends React.Component{
 
   constructor(props) {
     super(props);
   }
-
-  componentDidMount() {}
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.title}>
           <Text style={styles.titleText}>
-            Enter Handle
+            Enter your handle
           </Text>
         </View>
         <View style={styles.inputContainer}>
@@ -57,4 +55,4 @@ function select(state) {
   };
 }
 
-export default connect(select)(CapturePhone);
+export default connect(select)(CaptureHandle);
