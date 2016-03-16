@@ -13,7 +13,7 @@ let {
   Text,
 } = React;
 
-class Success extends React.Component{
+class Failure extends React.Component{
 
   constructor(props) {
     super(props);
@@ -23,25 +23,22 @@ class Success extends React.Component{
 
   componentDidMount() {
     setTimeout(() => {
-      this.props.navigator.resetTo({
-        component: CaptureSecretContainer,
-        type: CAPTURE_SECRET,
-      });
-    }, 1500);
+      this.props.navigator.pop();
+    }, 2000);
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.big}>
-          Success!
+          No, no, no...
         </Text>
         <Text style={styles.small}>
-          Mobile Phone Verified
+          {this.props.route.error}
         </Text>
       </View>
     );
   }
 }
 
-export default Success;
+export default Failure;

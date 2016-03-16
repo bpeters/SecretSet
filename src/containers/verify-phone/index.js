@@ -37,6 +37,7 @@ class VerifyPhone extends React.Component{
             onChangeText={this._onChange.bind(this)}
             value={this.props.user.code}
             placeholder='******'
+            maxLength={6}
             autoFocus={true}
           />
         </View>

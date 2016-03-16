@@ -28,6 +28,9 @@ let Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
+  logo: {
+    width: SCREEN_WIDTH / 2,
+  },
   buttonContainer: {
     flex: 1,
     width: SCREEN_WIDTH,

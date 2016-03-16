@@ -36,7 +36,8 @@ class CapturePhone extends React.Component{
             keyboardType='phone-pad'
             onChangeText={this._onChange.bind(this)}
             value={this.props.user.phone}
-            placeholder='(***) *** - ***'
+            placeholder='(***) *** - ****'
+            maxLength={10}
             autoFocus={true}
           />
         </View>

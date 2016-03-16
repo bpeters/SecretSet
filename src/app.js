@@ -12,6 +12,7 @@ import {
   VERIFY_PHONE,
   SUCCESS,
   CAPTURE_SECRET,
+  FAILURE,
 } from './constants/routes';
 
 import Theme from './theme';
@@ -92,8 +93,12 @@ class App extends React.Component {
 
   _configureScene(route) {
     switch (route.type) {
+      case FAILURE:
+        return Navigator.SceneConfigs.VerticalUpSwipeJump;
+      case SUCCESS:
+        return Navigator.SceneConfigs.VerticalDownSwipeJump;
       default:
-        return Navigator.SceneConfigs.FloatFromRight;
+        return Navigator.SceneConfigs.HorizontalSwipeJump;
     }
   }
 

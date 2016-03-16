@@ -31,6 +31,7 @@ class Landing extends React.Component{
       <View style={styles.container}>
         <View style={styles.branding}>
           <Image
+            resizeMode='contain'
             style={styles.logo}
             source={require('../../assets/logo.png')}
           />
@@ -52,7 +53,6 @@ class Landing extends React.Component{
     this.props.navigator.push({
       component: CapturePhoneContainer,
       type: CAPTURE_PHONE,
-      isNew: true,
     });
   }
 

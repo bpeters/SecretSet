@@ -37,6 +37,7 @@ class CapturePhone extends React.Component{
             onChangeText={this._onChange.bind(this)}
             value={this.props.user.handle}
             placeholder='handle'
+            maxLength={15}
             autoFocus={true}
           />
         </View>

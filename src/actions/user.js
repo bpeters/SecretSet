@@ -1,15 +1,19 @@
 import React from 'react-native';
+
 import * as types from '../constants/action-types';
 import * as twilio from '../core/twilio';
+import * as firebase from '../core/firebase';
 
 import VerifyPhoneContainer from '../containers/verify-phone';
 import SuccessContainer from '../containers/success';
+import FailureContainer from '../containers/failure';
 import CaptureHandleContainer from '../containers/capture-handle';
 import CaptureSecretContainer from '../containers/capture-secret';
 
 import {
   VERIFY_PHONE,
   SUCCESS,
+  FAILURE,
   CAPTURE_HANDLE,
   CAPTURE_SECRET,
 } from '../constants/routes';
@@ -94,6 +98,32 @@ export function setHandle(handle, navigator) {
         dispatch({
           type: types.APP_ERROR,
           error: 'Handle needs to be less than 16 characters and contain no spaces or special characters'
+        });
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+
+  };
+}
+
+export function verifySecret(secret, navigator) {
+  return async dispatch => {
+
+    try {
+
+      let set = await firebase.getSet(secret);
+
+      console.log(set);
+
+      if (set) {
+
+      } else {
+        navigator.push({
+          component: FailureContainer,
+          type: FAILURE,
+          error: "That's not the right secret",
         });
       }
 

@@ -5,3 +5,4 @@ export const CAPTURE_HANDLE = 'CAPTURE_HANDLE';
 export const CAPTURE_SECRET = 'CAPTURE_SECRET';
 export const SET = 'SET';
 export const SUCCESS = 'SUCCESS';
+export const FAILURE = 'FAILURE';

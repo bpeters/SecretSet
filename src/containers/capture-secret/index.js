@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import {
   changeSecret,
+  verifySecret,
 } from '../../actions/user';
 
 import styles from './styles.js';
@@ -20,9 +21,9 @@ class CaptureSecret extends React.Component{
     super(props);
   }
 
-  componentDidMount() {}
-
   render() {
+    let length = this.props.secret ? this.props.secret.length : 0;
+
     return (
       <View style={styles.container}>
         <View style={styles.title}>
@@ -35,20 +36,27 @@ class CaptureSecret extends React.Component{
             style={styles.input}
             keyboardType='numeric'
             onChangeText={this._onChange.bind(this)}
-            value={this.props.user.secret}
+            value={this.props.secret}
             placeholder='******'
+            maxLength={6}
             autoFocus={true}
           />
         </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this._onVerify.bind(this)}>
-            <View style={styles.button}>
-              <Text style={styles.buttonText}>
-                Check Code
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        {length === 6 ? this._renderButton() : null}
+      </View>
+    );
+  }
+
+  _renderButton() {
+    return (
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={this._onVerify.bind(this)}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>
+              Check Code
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -58,14 +66,14 @@ class CaptureSecret extends React.Component{
   }
 
   _onVerify() {
-    console.log('test');
+    this.props.dispatch(verifySecret(this.props.secret, this.props.navigator));
   }
 
 }
 
 function select(state) {
   return {
-    user: state.user,
+    secret: state.user.secret,
   };
 }
 
