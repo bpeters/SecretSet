@@ -150,6 +150,11 @@ export function verifySecret(secret, navigator) {
 
       if (set) {
 
+        dispatch({
+          type: types.USER_FOUND_SET,
+          set: set,
+        });
+
         firebase.updateSet(secret, dispatch);
 
         navigator.resetTo({

@@ -8,6 +8,7 @@ import {
   PRIMARY_COLOR_LIGHT,
   PURPLE,
   DARK_PURPLE,
+  BUTTON_WIDTH,
 } from '../../theme';
 
 let {
@@ -23,19 +24,70 @@ let Styles = StyleSheet.create({
     width: SCREEN_WIDTH,
   },
   info: {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT / 3,
+    width: SCREEN_WIDTH - 80,
+    top: NAV_BAR_HEIGHT + 20,
+    left: 40,
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
-  setName: {
+  name: {
     color: PRIMARY_COLOR_LIGHT,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   createdBy: {
     color: PRIMARY_COLOR_LIGHT,
+    fontSize: 18,
+    marginBottom: 60,
   },
-  setDescription: {
+  description: {
     color: PRIMARY_COLOR_LIGHT,
+    fontSize: 14,
+    marginBottom: 40,
+    textAlign: 'center',
+  },
+  stats: {
+    width: SCREEN_WIDTH - 80,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  spots: {
+    color: PRIMARY_COLOR_LIGHT,
+    opacity: 0.8,
+    fontSize: 16,
+    padding: 10,
+  },
+  open: {
+    opacity: 1,
+  },
+  online: {
+    color: PRIMARY_COLOR_LIGHT,
+    fontSize: 14,
+    fontWeight: 'bold',
+    padding: 10,
+  },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 100,
+    width: SCREEN_WIDTH,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    backgroundColor: PRIMARY_COLOR_LIGHT,
+    padding: 18,
+    width: BUTTON_WIDTH,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: PURPLE,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 });
 

@@ -8,6 +8,7 @@ import {
   PRIMARY_COLOR_LIGHT,
   PURPLE,
   DARK_PURPLE,
+  BUTTON_WIDTH,
 } from '../../theme';
 
 let {
@@ -40,7 +41,7 @@ let Styles = StyleSheet.create({
   button: {
     backgroundColor: PRIMARY_COLOR_LIGHT,
     padding: 18,
-    width: SCREEN_WIDTH / 1.5,
+    width: BUTTON_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 4,

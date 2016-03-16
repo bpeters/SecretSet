@@ -9,6 +9,7 @@ import {
   PRIMARY_COLOR_DARK,
   PURPLE,
   DARK_PURPLE,
+  BUTTON_WIDTH,
 } from '../../theme';
 
 let {
@@ -56,16 +57,16 @@ let Styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: DARK_PURPLE,
+    backgroundColor: PRIMARY_COLOR_LIGHT,
     padding: 18,
-    width: SCREEN_WIDTH / 1.5,
+    width: BUTTON_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 4,
     marginBottom: 10,
   },
   buttonText: {
-    color: PRIMARY_COLOR_LIGHT,
+    color: PURPLE,
     fontSize: 20,
     fontWeight: 'bold',
   },

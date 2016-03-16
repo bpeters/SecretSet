@@ -27,6 +27,8 @@ export const SCREEN_HEIGHT = Dimensions.get('window').height;
 export const SCREEN_WIDTH = Dimensions.get('window').width;
 export const SIDE_MENU_OFFSET = SCREEN_WIDTH - 44;
 
+export const BUTTON_WIDTH = 260;
+
 export const STATUS_BAR_HEIGHT = 20;
 export const NAV_BAR_HEIGHT = 64;
 export const AVATAR_SIZE = 45;
