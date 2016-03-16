@@ -26,6 +26,8 @@ const initialState = {
   set: initialSet,
   loading: false,
   initialized: false,
+  claimed: [],
+  isClaimed: false,
 };
 
 export default function app(state = initialState, action) {
@@ -68,6 +70,15 @@ export default function app(state = initialState, action) {
       return Object.assign({}, state, {
         loading: true,
       });
+
+    case types.USER_CLAIM_TICKET:
+
+      user.claimed.push(user.secret);
+      user.isClaimed = true;
+
+      AsyncStorage.setItem('SECRET_SET_USER', JSON.stringify(user));
+
+      return Object.assign({}, state, user);
 
     case types.USER_SET_PHONE:
 

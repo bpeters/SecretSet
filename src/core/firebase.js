@@ -61,3 +61,13 @@ export function addMessage(message, user) {
 
   new Firebase(url).push(message);
 }
+
+export function claimUser(user, mood) {
+
+  let url = `${firebaseUrl}/${user.secret}/claimed/${user.phone}`;
+
+  new Firebase(url).set({
+    phone: user.phone,
+    handle: user.handle,
+  });
+}

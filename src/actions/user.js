@@ -220,6 +220,23 @@ export function joinSet(user, navigator) {
   };
 }
 
+export function claimTicket(user) {
+  return async dispatch => {
+
+    try {
+
+      firebase.claimUser(user);
+
+      dispatch({
+        type: types.USER_CLAIM_TICKET,
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
 export function changePhone(phone) {
   return dispatch => {
     dispatch({

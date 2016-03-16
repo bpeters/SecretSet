@@ -9,6 +9,7 @@ import {
   PURPLE,
   DARK_PURPLE,
   BUTTON_WIDTH,
+  GREEN,
 } from '../../theme';
 
 let {
@@ -39,7 +40,7 @@ let Styles = StyleSheet.create({
   createdBy: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 18,
-    marginBottom: 60,
+    marginBottom: 40,
     fontFamily: 'AvenirNext-Regular',
   },
   description: {
@@ -51,7 +52,7 @@ let Styles = StyleSheet.create({
   },
   stats: {
     width: SCREEN_WIDTH - 80,
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -60,6 +61,11 @@ let Styles = StyleSheet.create({
     opacity: 0.8,
     fontSize: 16,
     padding: 10,
+  },
+  tickets: {
+    color: GREEN,
+    opacity: 1,
+    fontFamily: 'AvenirNext-Bold',
   },
   open: {
     opacity: 1,
