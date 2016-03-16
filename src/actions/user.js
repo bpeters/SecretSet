@@ -3,11 +3,13 @@ import * as types from '../constants/action-types';
 import * as twilio from '../core/twilio';
 
 import VerifyPhoneContainer from '../containers/verify-phone';
+import SuccessContainer from '../containers/success';
 import CaptureHandleContainer from '../containers/capture-handle';
 import CaptureSecretContainer from '../containers/capture-secret';
 
 import {
   VERIFY_PHONE,
+  SUCCESS,
   CAPTURE_HANDLE,
   CAPTURE_SECRET,
 } from '../constants/routes';
@@ -59,8 +61,8 @@ export function verifyCode(code, navigator) {
         });
 
         navigator.push({
-          component: CaptureHandleContainer,
-          type: CAPTURE_HANDLE,
+          component: SuccessContainer,
+          type: SUCCESS,
         });
       } else {
         dispatch({
@@ -88,10 +90,6 @@ export function setHandle(handle, navigator) {
           type: types.USER_SET_HANDLE,
         });
 
-        navigator.push({
-          component: CaptureSecretContainer,
-          type: CAPTURE_SECRET,
-        });
       } else {
         dispatch({
           type: types.APP_ERROR,

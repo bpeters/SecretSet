@@ -6,7 +6,7 @@ import {
   SCREEN_WIDTH,
   NAV_BAR_HEIGHT,
   PRIMARY_COLOR_LIGHT,
-  RED,
+  PURPLE,
 } from '../../theme';
 
 let {
@@ -17,7 +17,7 @@ let Styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: RED,
+    backgroundColor: PURPLE,
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH,
   },
@@ -44,7 +44,7 @@ let Styles = StyleSheet.create({
     marginBottom: 10,
   },
   signupText: {
-    color: RED,
+    color: PURPLE,
   },
   login: {
     backgroundColor: 'transparent',

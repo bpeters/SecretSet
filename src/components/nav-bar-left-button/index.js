@@ -4,6 +4,8 @@ import {
   LANDING,
   CAPTURE_PHONE,
   VERIFY_PHONE,
+  SUCCESS,
+  CAPTURE_SECRET,
 } from '../../constants/routes';
 
 import styles from './styles.js';

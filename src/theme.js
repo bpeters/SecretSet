@@ -12,10 +12,8 @@ export const PRIMARY_COLOR_DARK = '#2E2E2E';
 export const PRIMARY_COLOR_GRAY = '#616161';
 export const PRIMARY_COLOR_LIGHT = '#FFFFFF';
 
-export const RED = '#D033E3';
-export const BLUE = '#03A9F4';
-export const YELLOW = '#F9CA6B';
-export const GREEN = '#02D04E';
+export const PURPLE = '#D033E3';
+export const GREEN = '#2AF09C';
 
 export const BORDER_COLOR = '#D1CCC7';
 export const BORDER_COLOR_LIGHT = '#E9E7E9';

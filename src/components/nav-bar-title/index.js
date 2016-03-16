@@ -19,28 +19,14 @@ class Title extends React.Component{
 
   render() {
     switch (this.props.type) {
-      case CAPTURE_SECRET:
-        return this._renderHandle();
       default:
         return null;
     }
   }
-
-  _renderHandle() {
-    console.log(this.props.title);
-
-    return (
-      <Text style={styles.text}>
-        {this.props.title}
-      </Text>
-    )
-  }
 }
 
 function select(state) {
-  return {
-    title: state.user.handle,
-  };
+  return {};
 }
 
 export default connect(select)(Title);

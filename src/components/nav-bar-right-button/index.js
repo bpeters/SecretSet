@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {
   setPhone,
   verifyCode,
-  setHandle,
 } from '../../actions/user';
 
 import {
@@ -13,6 +12,7 @@ import {
   VERIFY_PHONE,
   CAPTURE_HANDLE,
   CAPTURE_SECRET,
+  SUCCESS,
 } from '../../constants/routes';
 
 import styles from './styles.js';
@@ -31,13 +31,9 @@ class RightButton extends React.Component{
   render() {
     switch (this.props.type) {
       case CAPTURE_PHONE:
-        return this._renderText('Next', this._toVerify.bind(this), this.props.user.phone);
+        return this._renderText('Send', this._toVerify.bind(this), this.props.user.phone);
       case VERIFY_PHONE:
-        return this._renderText('Next', this._toHandle.bind(this), this.props.user.code);
-      case CAPTURE_HANDLE:
-        return this._renderText('Done', this._toSecret.bind(this), this.props.user.handle);
-      case CAPTURE_SECRET:
-        return this._renderText('Go', this._toSet.bind(this), this.props.user.secret);
+        return this._renderText('Verify', this._toSuccess.bind(this), this.props.user.code);
       default:
         return null;
     }
@@ -60,16 +56,8 @@ class RightButton extends React.Component{
     this.props.dispatch(setPhone(this.props.user.phone, this.props.navigator));
   }
 
-  _toHandle() {
+  _toSuccess() {
     this.props.dispatch(verifyCode(this.props.user.code, this.props.navigator));
-  }
-
-  _toSecret() {
-    this.props.dispatch(setHandle(this.props.user.handle, this.props.navigator));
-  }
-
-  _toSet() {
-    console.log('test');
   }
 }
 
