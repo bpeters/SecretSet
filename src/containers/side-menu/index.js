@@ -30,7 +30,7 @@ class SideMenu extends React.Component{
           <MenuComponent
             navigator={this.props.navigator}
             menuIsOpen={this.props.menuIsOpen}
-            set={this.props.set}
+            user={this.props.user}
           />
         }
         isOpen={this.props.menuIsOpen}
@@ -52,7 +52,7 @@ class SideMenu extends React.Component{
 function select(state) {
   return {
     menuIsOpen: state.app.menuIsOpen,
-    set: state.user.set,
+    user: state.user,
   };
 }
 

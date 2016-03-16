@@ -46,3 +46,10 @@ export function addUser(user) {
     handle: user.handle,
   });
 }
+
+export function removeUser(user) {
+
+  let url = `${firebaseUrl}/${user.secret}/online/${user.phone}`;
+
+  new Firebase(url).remove();
+}

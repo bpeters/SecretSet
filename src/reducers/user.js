@@ -7,6 +7,15 @@ let {
   AsyncStorage,
 } = React;
 
+const initialSet = {
+  name: null,
+  description: null,
+  createdBy: null,
+  limit: null,
+  online: null,
+  price: null,
+};
+
 const initialState = {
   phone: null,
   code: null,
@@ -14,14 +23,7 @@ const initialState = {
   sentCode: false,
   isVerified: false,
   secret: null,
-  set: {
-    name: null,
-    description: null,
-    createdBy: null,
-    limit: null,
-    online: null,
-    price: null,
-  },
+  set: initialSet,
   loading: false,
   initialized: false,
 };
@@ -84,13 +86,12 @@ export default function app(state = initialState, action) {
 
       return Object.assign({}, state, user);
 
-    case types.USER_SET_HANDLE:
-
-      user.handle = action.handle;
-
-      AsyncStorage.setItem('SECRET_SET_USER', JSON.stringify(user));
-
-      return Object.assign({}, state, user);
+    case types.USER_LEAVE_SET:
+      return Object.assign({}, state, {
+        handle: null,
+        secret: null,
+        set: initialSet,
+      });
 
     default:
       return state;

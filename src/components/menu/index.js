@@ -2,6 +2,10 @@ import React from 'react-native';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import {
+  leaveSet,
+} from '../../actions/user';
+
 import styles from './styles.js';
 
 let {
@@ -37,7 +41,7 @@ class Menu extends React.Component{
   }
 
   render() {
-    let set = this.props.set;
+    let set = this.props.user.set;
     let people = _.map(set.online, (person) => {
       return this._renderPerson(person);
     });
@@ -100,7 +104,7 @@ class Menu extends React.Component{
   }
 
   _onLeave() {
-    console.log('leave');
+    this.props.dispatch(leaveSet(this.props.user, this.props.navigator));
   }
 
 }

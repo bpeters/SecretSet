@@ -134,11 +134,6 @@ export function setHandle(user, navigator) {
           firebase.addUser(user);
 
           dispatch({
-            type: types.USER_SET_HANDLE,
-            handle: user.handle,
-          });
-
-          dispatch({
             type: types.APP_TOGGLE_NAV,
           });
 
@@ -258,5 +253,26 @@ export function changeSecret(secret) {
       type: types.USER_CHANGE_SECRET,
       secret: secret,
     });
+  };
+}
+
+export function leaveSet(user, navigator) {
+  return async dispatch => {
+
+    try {
+      firebase.removeUser(user);
+
+      dispatch({
+        type: types.USER_LEAVE_SET,
+      });
+
+      navigator.resetTo({
+        component: CaptureSecretContainer,
+        type: CAPTURE_SECRET,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
   };
 }
