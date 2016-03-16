@@ -27,7 +27,7 @@ class Success extends React.Component{
         component: CaptureSecretContainer,
         type: CAPTURE_SECRET,
       });
-    }, 2000);
+    }, 1500);
   }
 
   render() {

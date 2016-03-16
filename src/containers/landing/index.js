@@ -35,15 +35,15 @@ class Landing extends React.Component{
             source={require('../../assets/logo.png')}
           />
         </View>
-        <View style={styles.buttons}>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={this._onSignup.bind(this)}>
-            <View style={styles.signup}>
-              <Text style={styles.signupText}>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>
                 Start
               </Text>
             </View>
           </TouchableOpacity>
-          </View>
+        </View>
       </View>
     );
   }

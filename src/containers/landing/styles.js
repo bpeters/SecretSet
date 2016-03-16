@@ -7,6 +7,7 @@ import {
   NAV_BAR_HEIGHT,
   PRIMARY_COLOR_LIGHT,
   PURPLE,
+  DARK_PURPLE,
 } from '../../theme';
 
 let {
@@ -27,15 +28,15 @@ let Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  buttons: {
+  buttonContainer: {
     flex: 1,
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT / 2,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  signup: {
-    backgroundColor: PRIMARY_COLOR_LIGHT,
+  button: {
+    backgroundColor: DARK_PURPLE,
     padding: 10,
     width: SCREEN_WIDTH / 2,
     alignItems: 'center',
@@ -43,18 +44,9 @@ let Styles = StyleSheet.create({
     borderRadius: 4,
     marginBottom: 10,
   },
-  signupText: {
-    color: PURPLE,
-  },
-  login: {
-    backgroundColor: 'transparent',
-    padding: 10,
-    width: SCREEN_WIDTH / 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  loginText: {
+  buttonText: {
     color: PRIMARY_COLOR_LIGHT,
+    fontWeight: 'bold',
   },
 });
 

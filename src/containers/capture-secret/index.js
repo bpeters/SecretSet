@@ -40,12 +40,25 @@ class CaptureSecret extends React.Component{
             autoFocus={true}
           />
         </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={this._onVerify.bind(this)}>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>
+                Check Code
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
 
   _onChange(secret) {
     this.props.dispatch(changeSecret(secret));
+  }
+
+  _onVerify() {
+    console.log('test');
   }
 
 }

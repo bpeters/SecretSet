@@ -8,6 +8,7 @@ import {
   PRIMARY_COLOR_LIGHT,
   PRIMARY_COLOR_DARK,
   PURPLE,
+  DARK_PURPLE,
 } from '../../theme';
 
 let {
@@ -44,7 +45,26 @@ let Styles = StyleSheet.create({
     textAlign: 'center',
     color: PURPLE,
     height: NAV_BAR_HEIGHT,
-  }
+  },
+  buttonContainer: {
+    marginTop: 20,
+    width: SCREEN_WIDTH,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    backgroundColor: DARK_PURPLE,
+    padding: 10,
+    width: SCREEN_WIDTH / 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: PRIMARY_COLOR_LIGHT,
+    fontWeight: 'bold',
+  },
 });
 
 export default Styles;

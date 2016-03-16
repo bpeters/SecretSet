@@ -13,6 +13,7 @@ export const PRIMARY_COLOR_GRAY = '#616161';
 export const PRIMARY_COLOR_LIGHT = '#FFFFFF';
 
 export const PURPLE = '#D033E3';
+export const DARK_PURPLE = '#8902B3';
 export const GREEN = '#2AF09C';
 
 export const BORDER_COLOR = '#D1CCC7';
