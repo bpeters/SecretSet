@@ -18,9 +18,13 @@ let Styles = StyleSheet.create({
   },
   text: {
     color: PRIMARY_COLOR_DARK,
-    lineHeight: 18,
+    lineHeight: 20,
     marginTop: 3,
     fontSize: 18,
+    fontFamily: 'AvenirNext-Medium',
+  },
+  white: {
+    color: PRIMARY_COLOR_LIGHT,
   },
   icon: {
     color: PRIMARY_COLOR_LIGHT,

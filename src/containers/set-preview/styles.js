@@ -33,19 +33,21 @@ let Styles = StyleSheet.create({
   name: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     marginBottom: 10,
   },
   createdBy: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 18,
     marginBottom: 60,
+    fontFamily: 'AvenirNext-Regular',
   },
   description: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 14,
     marginBottom: 40,
     textAlign: 'center',
+    fontFamily: 'AvenirNext-Regular',
   },
   stats: {
     width: SCREEN_WIDTH - 80,
@@ -65,7 +67,7 @@ let Styles = StyleSheet.create({
   online: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 14,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     padding: 10,
   },
   buttonContainer: {
@@ -87,7 +89,7 @@ let Styles = StyleSheet.create({
   buttonText: {
     color: PURPLE,
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
   },
 });
 

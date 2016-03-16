@@ -27,10 +27,12 @@ let Styles = StyleSheet.create({
     fontSize: 30,
     color: PRIMARY_COLOR_LIGHT,
     marginBottom: 10,
+    fontFamily: 'AvenirNext-Bold',
   },
   small: {
     fontSize: 18,
     color: PRIMARY_COLOR_LIGHT,
+    fontFamily: 'AvenirNext-Regular',
   },
 });
 

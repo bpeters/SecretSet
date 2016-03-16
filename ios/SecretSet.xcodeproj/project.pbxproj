@@ -27,6 +27,9 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		890325D91C99801100576C56 /* libRCTYouTube.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 890325D81C99800900576C56 /* libRCTYouTube.a */; };
 		890325DB1C99806000576C56 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = 890325DA1C99806000576C56 /* YTPlayerView-iframe-player.html */; };
+		890325DF1C999E2D00576C56 /* Next-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 890325DC1C999E2D00576C56 /* Next-Bold.ttf */; };
+		890325E01C999E2D00576C56 /* Next-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 890325DD1C999E2D00576C56 /* Next-Medium.ttf */; };
+		890325E11C999E2D00576C56 /* Next-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 890325DE1C999E2D00576C56 /* Next-Regular.ttf */; };
 		A4814D5BF6894C8B8C50EC16 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D3060DA04FE4117B19463BA /* FontAwesome.ttf */; };
 		A8E4D86982154158972A738D /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EABD634694D14AF88464CAD7 /* libRNVectorIcons.a */; };
 		B17C5C33192B4ED28F9137A2 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22CDE7398B6F494EB7A96F1F /* Entypo.ttf */; };
@@ -155,6 +158,9 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		890325D31C99800800576C56 /* RCTYouTube.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTYouTube.xcodeproj; path = "../node_modules/react-native-youtube/RCTYouTube.xcodeproj"; sourceTree = "<group>"; };
 		890325DA1C99806000576C56 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
+		890325DC1C999E2D00576C56 /* Next-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Next-Bold.ttf"; sourceTree = "<group>"; };
+		890325DD1C999E2D00576C56 /* Next-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Next-Medium.ttf"; sourceTree = "<group>"; };
+		890325DE1C999E2D00576C56 /* Next-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Next-Regular.ttf"; sourceTree = "<group>"; };
 		AFEEACC1FA82474EAE1F5C0A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 0; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		B1BF4250B08E43C78C0F70C3 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 0; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		C34BD5A232064FD9AD81D3DF /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 0; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -364,6 +370,9 @@
 		DF003624C389448A8469E31A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				890325DC1C999E2D00576C56 /* Next-Bold.ttf */,
+				890325DD1C999E2D00576C56 /* Next-Medium.ttf */,
+				890325DE1C999E2D00576C56 /* Next-Regular.ttf */,
 				22CDE7398B6F494EB7A96F1F /* Entypo.ttf */,
 				5AAA167EEF964BD7BF7BDE07 /* EvilIcons.ttf */,
 				5D3060DA04FE4117B19463BA /* FontAwesome.ttf */,
@@ -605,9 +614,12 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B17C5C33192B4ED28F9137A2 /* Entypo.ttf in Resources */,
 				DFE442B5DFDB4C80BE5C3B10 /* EvilIcons.ttf in Resources */,
+				890325E11C999E2D00576C56 /* Next-Regular.ttf in Resources */,
 				A4814D5BF6894C8B8C50EC16 /* FontAwesome.ttf in Resources */,
 				14D8CD85055749C593825CFE /* Foundation.ttf in Resources */,
+				890325DF1C999E2D00576C56 /* Next-Bold.ttf in Resources */,
 				B614F71D37BA46609DBA22E5 /* Ionicons.ttf in Resources */,
+				890325E01C999E2D00576C56 /* Next-Medium.ttf in Resources */,
 				6082E0A23E934288979CD877 /* MaterialIcons.ttf in Resources */,
 				63AF151E9B8F477B87E51394 /* Octicons.ttf in Resources */,
 				39839344CCCD4A719FABA21E /* Zocial.ttf in Resources */,

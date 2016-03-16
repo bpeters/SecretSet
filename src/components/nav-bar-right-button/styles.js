@@ -22,7 +22,8 @@ let Styles = StyleSheet.create({
     padding: 3,
     paddingRight: 0,
     fontSize: 18,
-    lineHeight: 18,
+    lineHeight: 20,
+    fontFamily: 'AvenirNext-Medium',
   },
   ready: {
     color: PRIMARY_COLOR_DARK,

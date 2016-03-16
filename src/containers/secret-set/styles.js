@@ -43,6 +43,7 @@ let Styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     marginLeft: 18,
+    fontFamily: 'AvenirNext-Regular',
   },
   icon: {
     color: PRIMARY_COLOR_LIGHT,

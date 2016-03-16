@@ -33,7 +33,7 @@ let Styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     color: PRIMARY_COLOR_LIGHT,
   },
   inputContainer: {
@@ -48,7 +48,7 @@ let Styles = StyleSheet.create({
     color: PURPLE,
     height: NAV_BAR_HEIGHT + 20,
     fontSize: 28,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
   },
   buttonContainer: {
     marginTop: 40,
@@ -68,7 +68,7 @@ let Styles = StyleSheet.create({
   buttonText: {
     color: PURPLE,
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
   },
 });
 

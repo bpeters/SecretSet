@@ -30,7 +30,7 @@ let Styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
   },
   inputContainer: {
     alignItems: 'center',
@@ -44,7 +44,7 @@ let Styles = StyleSheet.create({
     color: PRIMARY_COLOR_DARK,
     height: NAV_BAR_HEIGHT + 20,
     fontSize: 28,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
   }
 });
 

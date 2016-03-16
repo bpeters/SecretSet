@@ -43,25 +43,26 @@ let Styles = StyleSheet.create({
   artist: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     paddingBottom: 20,
     paddingTop: 10,
   },
   name: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 14,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     paddingBottom: 10,
   },
   description: {
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 14,
     paddingBottom: 20,
+    fontFamily: 'AvenirNext-Regular',
   },
   link: {
     color: PURPLE,
     fontSize: 14,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     paddingBottom: 10,
   },
   people: {
@@ -76,7 +77,7 @@ let Styles = StyleSheet.create({
   peopleTitle: {
     color: PRIMARY_COLOR_DARK,
     fontSize: 14,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     paddingBottom: 20,
     paddingTop: 20,
   },
@@ -84,6 +85,7 @@ let Styles = StyleSheet.create({
     color: PRIMARY_COLOR_LIGHT,
     fontSize: 14,
     padding: 2,
+    fontFamily: 'AvenirNext-Regular',
   },
   leave: {
     marginBottom: 10,
@@ -93,7 +95,7 @@ let Styles = StyleSheet.create({
   leaveText: {
     color: DARK_PURPLE,
     fontSize: 14,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
   },
   leaveIcon: {
     color: DARK_PURPLE,

@@ -30,7 +30,7 @@ let Styles = StyleSheet.create({
     color: PRIMARY_COLOR_GRAY,
     fontSize: 12,
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
     marginBottom: 8,
   },
   bubble: {
@@ -62,6 +62,7 @@ let Styles = StyleSheet.create({
     fontSize: 12,
     marginLeft: 50,
     marginTop: 20,
+    fontFamily: 'AvenirNext-Bold',
   },
   textInputContainer: {
     height: 44,

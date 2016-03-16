@@ -50,7 +50,7 @@ let Styles = StyleSheet.create({
   buttonText: {
     color: PURPLE,
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'AvenirNext-Bold',
   },
 });
 

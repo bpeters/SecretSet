@@ -17,6 +17,7 @@ let Styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 18,
     color: PRIMARY_COLOR_DARK,
+    fontFamily: 'AvenirNext-Regular',
   },
   url: {
     color: 'red',
