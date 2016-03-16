@@ -20,7 +20,6 @@ let {
 
 let Styles = StyleSheet.create({
   container: {
-    top: STATUS_BAR_HEIGHT + 64,
     backgroundColor: BACKGROUND_COLOR,
   },
   rowContainer: {

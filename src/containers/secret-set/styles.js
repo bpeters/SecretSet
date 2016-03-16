@@ -29,9 +29,10 @@ let Styles = StyleSheet.create({
     top: STATUS_BAR_HEIGHT,
     left: 0,
     width: SCREEN_WIDTH,
-    backgroundColor: 'black',
+    backgroundColor: 'rgba(52,52,52,.3)',
     padding: 18,
     flexDirection: 'row',
+    height: 264,
   },
   menu: {
     height: 28,
@@ -45,6 +46,11 @@ let Styles = StyleSheet.create({
   },
   icon: {
     color: PRIMARY_COLOR_LIGHT,
+  },
+  video: {
+    marginTop: STATUS_BAR_HEIGHT,
+    height: 200,
+    backgroundColor: 'black',
   },
 });
 

@@ -29,7 +29,8 @@ class Chat extends React.Component{
   }
 
   render() {
-    let maxHeight = SCREEN_HEIGHT - STATUS_BAR_HEIGHT - 64;
+    let maxHeight = SCREEN_HEIGHT - STATUS_BAR_HEIGHT - 200;
+
     let messages = _.map(this.props.user.set.messages, (message) => {
       message.image = {
         uri: 'http://ahcoloring.net/images/hnBcI3uRl.jpg'
@@ -69,7 +70,6 @@ class Chat extends React.Component{
   _onCustomSend(message) {
 
     this.props.dispatch(sendMessage({
-      date: new Date(),
       text: message.text,
       handle: this.props.user.handle,
     }, this.props.user));
