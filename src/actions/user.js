@@ -118,16 +118,16 @@ export function setHandle(user, navigator) {
 
     try {
 
-      let handle = user.handle.toLowerCase();
+      user.handle = user.handle.toLowerCase();
       let online = _.map(user.set.online);
 
       let handleUsedAlready = _.find(online, (other) => {
-        return other.handle === handle;
+        return other.handle === user.handle;
       });
 
       let handleCheck = new RegExp("^[A-Za-z0-9]{1,15}$");
 
-      if (handleCheck.test(handle)) {
+      if (handleCheck.test(user.handle)) {
 
         if (!handleUsedAlready) {
 
@@ -135,6 +135,7 @@ export function setHandle(user, navigator) {
 
           dispatch({
             type: types.USER_SET_HANDLE,
+            handle: user.handle,
           });
 
           dispatch({

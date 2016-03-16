@@ -1,5 +1,6 @@
 import React from 'react-native';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles.js';
 
@@ -8,6 +9,7 @@ let {
   Image,
   Text,
   ScrollView,
+  TouchableOpacity,
 } = React;
 
 class Menu extends React.Component{
@@ -40,8 +42,6 @@ class Menu extends React.Component{
       return this._renderPerson(person);
     });
 
-    console.log(set);
-
     return (
       <View style={[styles.container, this.state.hide ? styles.hide : null]}>
         <View style={styles.statusBar} />
@@ -73,6 +73,19 @@ class Menu extends React.Component{
             </Text>
             {people}
           </View>
+          <TouchableOpacity
+            onPress={this._onLeave.bind(this)}
+            style={styles.leave}
+          >
+            <Icon
+              name='exit-to-app'
+              size={16}
+              style={styles.leaveIcon}
+            />
+            <Text style={styles.leaveText}>
+              Leave Set
+            </Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
@@ -84,6 +97,10 @@ class Menu extends React.Component{
         {person.handle}
       </Text>
     );
+  }
+
+  _onLeave() {
+    console.log('leave');
   }
 
 }

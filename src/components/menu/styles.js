@@ -8,6 +8,8 @@ import {
   BACKGROUND_COLOR,
   PRIMARY_COLOR_LIGHT,
   PURPLE,
+  RED,
+  DARK_PURPLE,
 } from '../../theme';
 
 let {
@@ -65,8 +67,11 @@ let Styles = StyleSheet.create({
   people: {
     borderTopWidth: 1,
     borderTopColor: PRIMARY_COLOR_DARK,
+    borderBottomWidth: 1,
+    borderBottomColor: PRIMARY_COLOR_DARK,
     marginTop: 20,
-    paddingBottom: 20,
+    marginBottom: 20,
+    paddingBottom: 40,
   },
   peopleTitle: {
     color: PRIMARY_COLOR_DARK,
@@ -80,6 +85,20 @@ let Styles = StyleSheet.create({
     fontSize: 14,
     padding: 2,
   },
+  leave: {
+    marginBottom: 10,
+    marginTop: 20,
+    flexDirection: 'row',
+  },
+  leaveText: {
+    color: DARK_PURPLE,
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  leaveIcon: {
+    color: DARK_PURPLE,
+    marginRight: 10,
+  }
 });
 
 export default Styles;
