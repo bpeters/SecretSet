@@ -40,3 +40,4 @@ src/config.js
 # bundle
 #
 ios/main.jsbundle
+release/*
