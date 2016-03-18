@@ -27,13 +27,11 @@ class Landing extends React.Component{
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.branding}>
-          <Image
-            resizeMode='contain'
-            style={styles.logo}
-            source={require('../../assets/logo.png')}
-          />
-        </View>
+        <Image
+          resizeMode='contain'
+          style={styles.logo}
+          source={require('../../assets/logo.png')}
+        />
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={this._onSignup.bind(this)}>
             <View style={styles.button}>

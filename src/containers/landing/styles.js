@@ -22,16 +22,11 @@ let Styles = StyleSheet.create({
     backgroundColor: PURPLE,
     height: SCREEN_HEIGHT,
     width: SCREEN_WIDTH,
-  },
-  branding: {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT / 1.8,
-    marginBottom: 80,
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
   logo: {
-    width: SCREEN_WIDTH / 1.8,
+    width: 160,
   },
   buttonContainer: {
     width: SCREEN_WIDTH,

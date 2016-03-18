@@ -22,17 +22,20 @@ let Styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 40,
   },
   big: {
     fontSize: 30,
     color: PRIMARY_COLOR_LIGHT,
     marginBottom: 10,
     fontFamily: 'AvenirNext-Bold',
+    textAlign: 'center',
   },
   small: {
     fontSize: 18,
     color: PRIMARY_COLOR_LIGHT,
     fontFamily: 'AvenirNext-Regular',
+    textAlign: 'center',
   },
 });
 

@@ -50,13 +50,10 @@ export function setPhone(phone, navigator) {
     try {
 
       if (phone.length === 10) {
-        //let code = Math.floor(Math.random()*90000) + 10000;
 
-        let code = 123456; //fake it
+        let response = await twilio.sendVerificationCode(phone);
 
-        await AsyncStorage.setItem('SECRET_SET_VERFICATION_CODE', code.toString());
-
-        //await twilio.sendVerificationCode(phone, code);
+        await AsyncStorage.setItem('SECRET_SET_VERFICATION_CODE', response.code);
 
         dispatch({
           type: types.USER_SET_PHONE,
@@ -76,7 +73,11 @@ export function setPhone(phone, navigator) {
       }
 
     } catch (err) {
-      console.log(err);
+      navigator.push({
+        component: FailureContainer,
+        type: FAILURE,
+        error: "Looks like something happened to the network",
+      });
     }
 
   };

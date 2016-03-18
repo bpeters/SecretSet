@@ -1,47 +1,36 @@
-import querystring from 'query-string';
-
 import {
-  twilioSID,
-  twilioToken,
-  twilioPhone,
+  apiUrl,
 } from '../config';
 
-export async function sendVerificationCode(phone, code) {
+export async function sendVerificationCode(phone) {
 
-  let url = `https://${twilioSID}:${twilioToken}@api.twilio.com/2010-04-01/Accounts/${twilioSID}/Messages.json?`;
-  let query = `To=+1${phone}&From=${twilioPhone}&Body=Verification code for SecretSet: ${code}`;
+  return new Promise((resolve, reject) => {
+    let url = `${apiUrl}/verify`;
 
-  // let query = querystring.stringify({
-  //   To: `+1${phone}`,
-  //   From: twilioPhone,
-  //   Body: `Verification code for SecretSet: ${code}`,
-  // });
+    let body = {
+      number: phone,
+    };
 
-  // let body = {
-  //   to: `${phone}`,
-  //   from: twilioPhone,
-  //   body: `Verification code for SecretSet: ${code}`,
-  // };
+    return fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body),
+    })
+    .then((response) => {
 
-  console.log(query);
-
-  return fetch(url + query, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  })
-  .then((response) => {
-    response = JSON.parse(response._bodyText);
-
-    if (response.ok) {
-      return new Promise.resolve(response);
-    } else {
-      return new Promise.reject(response);
-    }
-    
-  })
-  .catch((err) => {
-    return new Promise.reject(err);
+      if (response.ok) {
+        return resolve(JSON.parse(response._bodyText));
+      } else {
+        return reject(response);
+      }
+      
+    })
+    .catch((err) => {
+      console.log(err);
+      return reject(err);
+    });
   });
+
 }
